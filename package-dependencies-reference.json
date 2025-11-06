@@ -1,0 +1,98 @@
+{
+  "说明": "这是需要添加到package.json的依赖项参考",
+  "添加位置": "将以下内容添加到你的package.json的dependencies字段中",
+  
+  "dependencies": {
+    "axios": "^1.6.2",
+    "pdfjs-dist": "^3.11.174",
+    "sql.js": "^1.8.0"
+  },
+  
+  "依赖说明": {
+    "axios": {
+      "用途": "HTTP客户端，用于调用阿里云OCR API",
+      "版本": "^1.6.2",
+      "大小": "~500KB",
+      "官网": "https://axios-http.com/"
+    },
+    "pdfjs-dist": {
+      "用途": "PDF解析库，将PDF转换为图片进行OCR识别",
+      "版本": "^3.11.174",
+      "大小": "~8MB",
+      "官网": "https://mozilla.github.io/pdf.js/",
+      "注意": "需要配置worker路径"
+    },
+    "sql.js": {
+      "用途": "SQLite数据库的JavaScript实现，用于本地数据存储",
+      "版本": "^1.8.0",
+      "大小": "~2MB",
+      "官网": "https://sql.js.org/",
+      "注意": "数据保存在浏览器localStorage中"
+    }
+  },
+  
+  "安装命令": {
+    "npm": "npm install axios pdfjs-dist sql.js",
+    "yarn": "yarn add axios pdfjs-dist sql.js",
+    "pnpm": "pnpm add axios pdfjs-dist sql.js"
+  },
+  
+  "完整的package.json示例": {
+    "name": "ismt-recruitment-system",
+    "version": "1.0.0",
+    "description": "智能薪酬管理工具 - 招聘系统",
+    "type": "module",
+    "scripts": {
+      "dev": "vite",
+      "build": "tsc && vite build",
+      "preview": "vite preview",
+      "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    },
+    "dependencies": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-router-dom": "^6.20.0",
+      "axios": "^1.6.2",
+      "pdfjs-dist": "^3.11.174",
+      "sql.js": "^1.8.0",
+      "@heroicons/react": "^2.0.18"
+    },
+    "devDependencies": {
+      "@types/react": "^18.2.43",
+      "@types/react-dom": "^18.2.17",
+      "@typescript-eslint/eslint-plugin": "^6.14.0",
+      "@typescript-eslint/parser": "^6.14.0",
+      "@vitejs/plugin-react": "^4.2.1",
+      "autoprefixer": "^10.4.16",
+      "eslint": "^8.55.0",
+      "eslint-plugin-react-hooks": "^4.6.0",
+      "eslint-plugin-react-refresh": "^0.4.5",
+      "postcss": "^8.4.32",
+      "tailwindcss": "^3.3.6",
+      "typescript": "^5.2.2",
+      "vite": "^5.0.8"
+    }
+  },
+  
+  "TypeScript类型定义": {
+    "说明": "需要安装类型定义文件",
+    "命令": "npm install --save-dev @types/node",
+    "用途": "为Node.js模块提供TypeScript类型支持"
+  },
+  
+  "Vite配置注意事项": {
+    "文件": "vite.config.ts",
+    "说明": "如果使用Vite，可能需要配置以下内容",
+    "配置示例": {
+      "optimizeDeps": {
+        "exclude": ["sql.js"]
+      },
+      "resolve": {
+        "alias": {
+          "pdfjs-dist": "pdfjs-dist/build/pdf"
+        }
+      }
+    }
+  }
+}
+

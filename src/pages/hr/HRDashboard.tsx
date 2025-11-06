@@ -22,11 +22,11 @@ export const HRDashboard: React.FC = () => {
     {
       id: 'recruitment',
       title: '智能招聘助手',
-      description: '基于市场数据的岗位需求分析和薪酬推荐，支持一键发布到多个招聘平台',
+      description: '企业级招聘全流程管理平台，从职位发布到候选人管理，提供完整的招聘解决方案',
       icon: BriefcaseIcon,
       link: '/hr/recruitment',
       color: 'bg-orange-50 text-orange-600',
-      highlights: ['薪酬推荐', '市场分析', '多平台发布'],
+      highlights: ['全流程管理', '候选人筛选', '数据分析', '市场洞察', '面试安排'],
       featured: true
     },
     {

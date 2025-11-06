@@ -12,6 +12,8 @@ import { NotificationContainer } from '@/components/Notification';
 import { ResultsPage } from '@/pages/ResultsPage';
 import { HRDashboard } from '@/pages/hr/HRDashboard';
 import { RecruitmentPage } from '@/pages/hr/RecruitmentPage';
+import ResumeScreeningWithOCR from '@/pages/hr/ResumeScreeningWithOCR';
+import SimpleResumeScreening from '@/pages/hr/SimpleResumeScreening';
 import { SalaryAuditPage } from '@/pages/hr/SalaryAuditPage';
 import { OptimizationPage } from '@/pages/hr/OptimizationPage';
 import { SalaryDiagnosisPage } from '@/pages/hr/SalaryDiagnosisPage';
@@ -67,6 +69,8 @@ function App() {
             {/* HR模块路由 */}
             <Route path="/hr" element={<HRDashboard />} />
             <Route path="/hr/recruitment" element={<RecruitmentPage />} />
+            <Route path="/hr/resume-screening" element={<SimpleResumeScreening />} />
+            <Route path="/hr/resume-screening-advanced" element={<ResumeScreeningWithOCR />} />
             <Route path="/hr/audit" element={<SalaryAuditPage />} />
             <Route path="/hr/optimization" element={<OptimizationPage />} />
                 <Route path="/hr/diagnosis" element={<SalaryDiagnosisPage />} />
