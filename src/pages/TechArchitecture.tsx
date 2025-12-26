@@ -14,7 +14,8 @@ import {
   DevicePhoneMobileIcon,
   ChartBarIcon,
   CommandLineIcon,
-  SwatchIcon
+  SwatchIcon,
+  DocumentIcon
 } from '@heroicons/react/24/outline';
 
 // 技术栈数据
@@ -25,13 +26,35 @@ const techStacks = {
     color: 'blue',
     technologies: [
       { name: 'React 18', description: '现代化前端框架', version: '18.2.0', official: true },
-      { name: 'TypeScript', description: '类型安全的JavaScript', version: '5.0+', official: true },
-      { name: 'Vite', description: '极速构建工具', version: '5.4+', official: true },
-      { name: 'React Router DOM', description: '单页应用路由管理', version: '6.8+', official: true },
-      { name: 'Tailwind CSS', description: '实用优先的CSS框架', version: '3.4+', official: true },
-      { name: 'Heroicons', description: '精美的SVG图标库', version: '2.0+', official: true },
-      { name: 'Chart.js', description: '数据可视化图表库', version: '4.0+', official: true },
-      { name: 'React Chart.js 2', description: 'React图表组件', version: '5.2+', official: true }
+      { name: 'TypeScript', description: '类型安全的JavaScript', version: '5.2.2', official: true },
+      { name: 'Vite', description: '极速构建工具', version: '5.1.0', official: true },
+      { name: 'React Router DOM', description: '单页应用路由管理', version: '6.22.0', official: true },
+      { name: 'Zustand', description: '轻量级状态管理', version: '4.5.0', official: true },
+      { name: 'Tailwind CSS', description: '实用优先的CSS框架', version: '3.4.1', official: true },
+      { name: 'Headless UI', description: '无样式UI组件库', version: '1.7.18', official: true },
+      { name: 'Heroicons', description: '精美的SVG图标库', version: '2.1.1', official: true },
+      { name: 'Lucide React', description: '现代化图标库', version: '0.344.0', official: true },
+      { name: 'Chart.js', description: '数据可视化图表库', version: '4.4.1', official: true },
+      { name: 'React Chart.js 2', description: 'React图表组件', version: '5.2.0', official: true },
+      { name: 'Axios', description: 'HTTP客户端', version: '1.13.2', official: true },
+      { name: 'clsx', description: '条件类名管理', version: '2.1.0', official: true },
+      { name: 'react-markdown', description: 'Markdown渲染组件', version: '10.1.0', official: true },
+      { name: 'remark-gfm', description: 'GitHub风格Markdown支持', version: '4.0.1', official: true },
+      { name: 'rehype-raw', description: '原始HTML解析支持', version: '7.0.0', official: true }
+    ]
+  },
+  dataProcessing: {
+    title: '数据处理与文档支持',
+    icon: <DocumentIcon className="w-8 h-8" />,
+    color: 'purple',
+    technologies: [
+      { name: 'jsPDF', description: 'PDF生成库', version: '3.0.3', official: true },
+      { name: 'jspdf-autotable', description: 'PDF表格生成', version: '5.0.2', official: true },
+      { name: 'html2canvas', description: 'HTML转Canvas', version: '1.4.1', official: true },
+      { name: 'pdfjs-dist', description: 'PDF解析库', version: '4.10.38', official: true },
+      { name: 'mammoth', description: 'Word文档解析', version: '1.11.0', official: true },
+      { name: 'xlsx', description: 'Excel文件处理', version: '0.18.5', official: true },
+      { name: 'sql.js', description: '浏览器端SQL支持', version: '1.13.0', official: true }
     ]
   },
   backend: {

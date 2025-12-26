@@ -105,8 +105,8 @@ export const ResumeScreeningWithOCR: React.FC = () => {
       setDbInitialized(true);
       
       // 加载已有简历数据
-      const savedResumes = database.getAllResumes();
-      const parsedResumes = savedResumes.map(r => ({
+      let savedResumes = database.getAllResumes();
+      let parsedResumes = savedResumes.map(r => ({
         id: r.id,
         fileName: r.fileName,
         uploadTime: new Date(r.uploadTime),
@@ -123,6 +123,84 @@ export const ResumeScreeningWithOCR: React.FC = () => {
         skills: JSON.parse(r.parsedData || '{}').skills?.professionalSkills || [],
         totalWorkYears: JSON.parse(r.parsedData || '{}').totalWorkYears
       }));
+      
+      // 如果没有简历数据，添加模拟数据
+      if (parsedResumes.length === 0) {
+        // 模拟张骄阳的简历数据
+        const zhangResume: ResumeData = {
+          id: 'mock_resume_zhang_001',
+          fileName: '张骄阳-简历.pdf',
+          uploadTime: new Date('2025-12-25T10:30:00'),
+          status: 'completed',
+          ocrText: `### 张骄阳 - 简历文字提取 \n#### 一、基本信息 \n 姓名：张骄阳  \n 籍贯：河南信阳  \n 电话：18338675175  \n 邮箱：3214754449@qq.com  \n 技能：掌握Word、Excel、Python、Tableau、SQL等软件 \n\n#### 二、教育经历 \n 1. 2020.9-2024.7 景德镇陶瓷大学 管理与经济学院 工商管理专业（本科）  \n    主修课程：人力资源管理、创业管理、经济法、统计学、会计学基础、高等数学B(I)、组织行为学、线性代数  \n 2. 2024.9-至今 北京交通大学 经济管理学院 物流工程与管理（硕士）  \n    主修课程：数据挖掘与商务智能、高级管理学、工程经济学、高级运筹学、不确定下数据驱动决策、物流工程专业英语 \n\n#### 三、实习经历 \n 2025年4月-2025年6月 北京安信创业信息科技发展有限公司 运营管理部实习生  \n - 项目管理：跟踪项目进度、协调资源，解决执行问题，优化管理流程，提升团队效率  \n - 合同管理：协助完成合同签署全流程，包括初步审查、资料整理、开票用印等，规避潜在风险  \n - 宣传物料制作：运用设计软件辅助制作宣传海报和手册，提升视觉效果，支持品牌推广 \n\n#### 四、项目经历 \n 1. 2025年4月-至今 铁路局需求预测项目（成员）  \n    项目概述：分析铁路局过往数据，构建模型预测动车组三级修程偶换备件需求  \n    项目职责：参与数据筛查与分析，撰写报告研究内容与思路，编写备件协同供应研究方向报告  \n    个人收获：掌握时间序列算法及深度学习模型原理，了解时序算法适用场景，学会动车备件需求预测方法  \n 2. 2025年3月-至今 冀北电网资产评估项目（核心成员）  \n    项目概述：基于LCC、RCM和APM等理论，以电能表为试点，建立多维度计量资产价值模型及评价体系  \n    项目职责：构建指标体系，设计各项指标及资产价值计算公式  \n    个人收获：熟练掌握价值模型构建方法，能独立完成指标体系与复杂公式设计，提升数据处理与分析能力 \n\n#### 五、获奖证书 \n - 2022-2023学年第一、二学期：两次校级三等奖学金、一次进步奖学金  \n - 2021-2022学年第二学期：第八届企业竞争模拟大赛一等奖  \n - 2022-2023学年第一学期：景德镇陶瓷大学2021年度“优秀志愿者” \n\n#### 六、自我评价 \n - 能吃苦耐劳，自学能力强，自学PS、PR、AE等剪辑软件并从事相关兼职  \n - 沟通能力强，善于交流，逻辑清晰，获系辩论赛季军及最佳辩手  \n - 抗压与时间协调能力较强，研究生期间自学补齐本科知识缺陷`,
+          ocrProgress: 100,
+          basicInfo: {
+            name: '张骄阳',
+            phone: '18338675175',
+            email: '3214754449@qq.com',
+            education: '硕士'
+          },
+          totalScore: 88,
+          educationScore: 85,
+          experienceScore: 80,
+          skillScore: 100,
+          tags: [],
+          notes: '',
+          skills: ['Word', 'Excel', 'Python', 'Tableau', 'SQL'],
+          totalWorkYears: 0.5
+        };
+
+        // 模拟郑锦城的简历数据
+        const zhengResume: ResumeData = {
+          id: 'mock_resume_zheng_002',
+          fileName: '郑锦城-简历.pdf',
+          uploadTime: new Date('2025-12-25T11:15:00'),
+          status: 'completed',
+          ocrText: `### 郑锦城 - 简历文字提取 \n#### 一、基本信息 \n 姓名：郑锦城  \n 年龄：30岁  \n 政治面貌：群众  \n 民族：汉族  \n 籍贯：吉林省  \n 联系电话：18373120430  \n 电子邮箱：1107912315@qq.com \n\n#### 二、教育经历 \n 1. 2021.09-2024.06 天津商业大学 金融学（硕士）  \n    研究方向：金融市场与金融机构  \n    主修课程：投资学、金融学（91分）、金融市场与金融机构（89分）、公司金融、证券投资学、中级微观经济学（85分）、中级宏观经济学、中级计量经济学、金融工程、金融科技  \n    辅修课程：证券股票模拟实操、金融工程与资产定价、英文写作  \n 2. 2014.09-2018.06 长沙大学 土木工程（本科）  \n    主修课程：结构力学、材料力学、理论力学、桥梁工程、混凝土设计与结构、工程测量  \n    辅修课程：英文写作 \n\n#### 三、工作经历 \n 1. 2024.08-2024.11 博文德能源集团 研究与咨询  \n    任务：参与国家电网、国家能源集团数智化转型、绿色化转型研究规划项目  \n    成果：完成国家电网公司、国家能源集团数字化转型分析与研究报告  \n 2. 2022.03-2022.04 天健会计师事务所 审计/财务分析（实习）  \n    任务：审查财务报表、会计记录等，确认真实性与准确性，检查收入、支出等财务项目，确保符合准则与法规  \n    成果：完成被审计企业资产负债表、利润表、现金流量表制作，定期出具报告  \n 3. 2022.04-2022.05 天职国际会计师事务所 审计/财务分析（实习）  \n    任务：执行大型公司IPO财务报表审计，分析财务数据，评估内部控制体系，提供改进建议，协助内部审计，解决财务风险  \n    成果：推进公司IPO进度，掌握上市细节，熟悉财务报表  \n 4. 2018.07-2019.04 中国航空工业集团 工程师/项目经理助理  \n    任务：设计工程初步方案，负责项目规划与管理（资源调配、进度/成本/质量控制、团队协调），与合作方沟通推进进度  \n    成果：参与华大基因项目大梅沙基地整体幕墙项目建成，深化多方协同合作认知 \n\n#### 四、技能奖项 \n - 证书：全国大学生英语六级证书、基金从业资格证、证券从业资格证书  \n - 奖项：天津商业大学研究生三等奖学金  \n - 其他：长沙学院系青年志愿者协会会员、长沙学院系足球队队员；发表刊物《科学与财富》《探索科学》  \n - 技能：熟练使用Word、Excel、PPT、Stata等计算机办公软件 \n\n#### 五、自我评价 \n - 金融知识扎实，热爱金融投资，有实践经验，具备良好金融分析能力与自驱力  \n - 踏实肯干、积极上进、适应能力强，工作责任心强，抗压能力突出  \n - 团队沟通协调能力良好，能沉稳处理工作`,
+          ocrProgress: 100,
+          basicInfo: {
+            name: '郑锦城',
+            age: 30,
+            phone: '18373120430',
+            email: '1107912315@qq.com',
+            education: '硕士'
+          },
+          totalScore: 92,
+          educationScore: 85,
+          experienceScore: 100,
+          skillScore: 90,
+          tags: [],
+          notes: '',
+          skills: ['Word', 'Excel', 'PPT', 'Stata', '基金从业资格证', '证券从业资格证书'],
+          totalWorkYears: 6
+        };
+
+        parsedResumes = [zhangResume, zhengResume];
+        
+        // 将模拟数据保存到数据库
+        parsedResumes.forEach(resume => {
+          database.insertResume({
+            id: resume.id,
+            fileName: resume.fileName,
+            uploadTime: resume.uploadTime.toISOString(),
+            ocrText: resume.ocrText,
+            parsedData: JSON.stringify({
+              basicInfo: resume.basicInfo,
+              skills: {
+                professionalSkills: resume.skills
+              },
+              totalWorkYears: resume.totalWorkYears
+            }),
+            status: 'completed',
+            tags: JSON.stringify(resume.tags),
+            totalScore: resume.totalScore,
+            educationScore: resume.educationScore,
+            experienceScore: resume.experienceScore,
+            skillScore: resume.skillScore,
+            notes: resume.notes
+          });
+        });
+      }
       
       setResumes(parsedResumes);
       setFilteredResumes(parsedResumes);

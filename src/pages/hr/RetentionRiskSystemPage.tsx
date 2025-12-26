@@ -64,7 +64,7 @@ const RetentionRiskSystemPage: React.FC = () => {
     const mockEmployees: Employee[] = [
       {
         id: '1',
-        name: '张伟',
+        name: '张三',
         position: '高级前端工程师',
         department: '技术部',
         tenure: 2.5,
@@ -83,7 +83,7 @@ const RetentionRiskSystemPage: React.FC = () => {
       },
       {
         id: '2',
-        name: '李小明',
+        name: '李四',
         position: '产品经理',
         department: '产品部',
         tenure: 1.8,
@@ -102,7 +102,7 @@ const RetentionRiskSystemPage: React.FC = () => {
       },
       {
         id: '3',
-        name: '王小红',
+        name: '王五',
         position: 'UI设计师',
         department: '设计部',
         tenure: 3.2,
