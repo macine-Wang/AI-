@@ -106,7 +106,7 @@ export const ResumeScreeningWithOCR: React.FC = () => {
       
       // 加载已有简历数据
       let savedResumes = database.getAllResumes();
-      let parsedResumes = savedResumes.map(r => ({
+      let parsedResumes: ResumeData[] = savedResumes.map(r => ({
         id: r.id,
         fileName: r.fileName,
         uploadTime: new Date(r.uploadTime),

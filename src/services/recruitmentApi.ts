@@ -169,7 +169,7 @@ class RecruitmentStorage {
 
 // 薪酬数据API（集成真实的薪酬数据源）
 class SalaryDataAPI {
-  private static readonly API_BASE = 'https://api.salary-data.com'; // 示例API
+  // private static readonly API_BASE = 'https://api.salary-data.com'; // 示例API
   
   static async getSalaryRange(position: string, location: string, experience: string): Promise<{
     min: number;
@@ -225,7 +225,7 @@ class SalaryDataAPI {
     }
   }
 
-  static async getMarketTrends(position: string): Promise<{
+  static async getMarketTrends(_position: string): Promise<{
     demandTrend: 'increasing' | 'stable' | 'decreasing';
     competitionLevel: 'low' | 'medium' | 'high';
     skillsInDemand: string[];
@@ -247,14 +247,14 @@ class SalaryDataAPI {
 
 // 招聘平台集成API
 class RecruitmentPlatformAPI {
-  private static platforms = [
-    { name: '智联招聘', apiKey: '', enabled: false },
-    { name: 'BOSS直聘', apiKey: '', enabled: false },
-    { name: '前程无忧', apiKey: '', enabled: false },
-    { name: '拉勾网', apiKey: '', enabled: false }
-  ];
+  // private static platforms = [
+  //   { name: '智联招聘', apiKey: '', enabled: false },
+  //   { name: 'BOSS直聘', apiKey: '', enabled: false },
+  //   { name: '前程无忧', apiKey: '', enabled: false },
+  //   { name: '拉勾网', apiKey: '', enabled: false }
+  // ];
 
-  static async publishJob(position: JobPosition, platforms: string[]): Promise<{
+  static async publishJob(_position: JobPosition, platforms: string[]): Promise<{
     success: boolean;
     results: { platform: string; success: boolean; jobId?: string; error?: string }[];
   }> {
@@ -267,7 +267,7 @@ class RecruitmentPlatformAPI {
         
         // 示例：BOSS直聘API调用
         if (platformName === 'BOSS直聘') {
-          const jobData = this.formatJobForBoss(position);
+          // const jobData = this.formatJobForBoss(position);
           // const response = await fetch('https://api.boss.com/jobs', {
           //   method: 'POST',
           //   headers: { 'Authorization': 'Bearer ' + apiKey },
@@ -283,7 +283,7 @@ class RecruitmentPlatformAPI {
         
         // 示例：智联招聘API调用
         else if (platformName === '智联招聘') {
-          const jobData = this.formatJobForZhilian(position);
+          // const jobData = this.formatJobForZhilian(position);
           // API调用逻辑
           
           results.push({
@@ -315,33 +315,33 @@ class RecruitmentPlatformAPI {
     return { success, results };
   }
 
-  private static formatJobForBoss(position: JobPosition) {
-    return {
-      title: position.title,
-      description: position.description,
-      requirements: position.requirements.join('\n'),
-      salary_min: position.salaryRange.min,
-      salary_max: position.salaryRange.max,
-      location: position.location,
-      experience: position.experience,
-      education: position.education,
-      skills: position.skills.join(',')
-    };
-  }
+  // private static formatJobForBoss(position: JobPosition) {
+  //   return {
+  //     title: position.title,
+  //     description: position.description,
+  //     requirements: position.requirements.join('\n'),
+  //     salary_min: position.salaryRange.min,
+  //     salary_max: position.salaryRange.max,
+  //     location: position.location,
+  //     experience: position.experience,
+  //     education: position.education,
+  //     skills: position.skills.join(',')
+  //   };
+  // }
 
-  private static formatJobForZhilian(position: JobPosition) {
-    return {
-      jobTitle: position.title,
-      jobDescription: position.description,
-      jobRequirement: position.requirements.join('；'),
-      minSalary: position.salaryRange.min,
-      maxSalary: position.salaryRange.max,
-      workLocation: position.location,
-      workExperience: position.experience,
-      education: position.education,
-      skillTags: position.skills
-    };
-  }
+  // private static formatJobForZhilian(position: JobPosition) {
+  //   return {
+  //     jobTitle: position.title,
+  //     jobDescription: position.description,
+  //     jobRequirement: position.requirements.join('；'),
+  //     minSalary: position.salaryRange.min,
+  //     maxSalary: position.salaryRange.max,
+  //     workLocation: position.location,
+  //     workExperience: position.experience,
+  //     education: position.education,
+  //     skillTags: position.skills
+  //   };
+  // }
 }
 
 // 简历解析API
@@ -388,7 +388,7 @@ class ResumeParserAPI {
 
 // 通知服务API
 class NotificationAPI {
-  static async sendEmail(to: string, subject: string, content: string): Promise<boolean> {
+  static async sendEmail(to: string, subject: string, _content: string): Promise<boolean> {
     try {
       // 集成真实的邮件服务
       // 例如：SendGrid、阿里云邮件推送、腾讯云SES等

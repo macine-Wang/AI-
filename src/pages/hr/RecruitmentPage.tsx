@@ -484,39 +484,41 @@ export const RecruitmentPage: React.FC = () => {
 
     try {
       // 创建模拟简历数据
-      const mockResumes = [
-        {
-          name: '张骄阳',
-          phone: '18338675175',
-          email: '3214754449@qq.com',
-          gender: '男',
-          age: 24,
-          education: [
-            { school: '北京交通大学', degree: '硕士', major: '物流工程与管理' },
-            { school: '景德镇陶瓷大学', degree: '本科', major: '工商管理' }
-          ],
-          skills: ['Word', 'Excel', 'Python', 'Tableau', 'SQL'],
-          workExperience: [
-            { position: '运营管理部实习生', company: '北京安信创业信息科技发展有限公司', duration: '2个月' }
-          ],
-          selfEvaluation: '能吃苦耐劳，自学能力强',
-          jobIntent: '运营管理'
-        },
-        {
-          name: '郑锦城',
-          phone: '13450502628',
-          email: '1062481460@qq.com',
-          gender: '男',
-          age: 23,
-          education: [
-            { school: '广州软件学院', degree: '本科', major: '网络工程' }
-          ],
-          skills: ['Python', 'Java', 'MySQL', 'JavaScript'],
-          workExperience: [],
-          selfEvaluation: '学习能力强，团队协作意识好',
-          jobIntent: '软件开发'
-        }
-      ];
+    const mockResumes = [
+      {
+        name: '张骄阳',
+        phone: '18338675175',
+        email: '3214754449@qq.com',
+        gender: '男',
+        age: 24,
+        education: [
+          { school: '北京交通大学', degree: '硕士', major: '物流工程与管理' },
+          { school: '景德镇陶瓷大学', degree: '本科', major: '工商管理' }
+        ],
+        skills: ['Word', 'Excel', 'Python', 'Tableau', 'SQL'],
+        workExperience: [
+          { position: '运营管理部实习生', company: '北京安信创业信息科技发展有限公司', duration: '2个月' }
+        ],
+        projectExperience: [],
+        selfEvaluation: '能吃苦耐劳，自学能力强',
+        jobIntent: '运营管理'
+      },
+      {
+        name: '郑锦城',
+        phone: '13450502628',
+        email: '1062481460@qq.com',
+        gender: '男',
+        age: 23,
+        education: [
+          { school: '广州软件学院', degree: '本科', major: '网络工程' }
+        ],
+        skills: ['Python', 'Java', 'MySQL', 'JavaScript'],
+        workExperience: [],
+        projectExperience: [],
+        selfEvaluation: '学习能力强，团队协作意识好',
+        jobIntent: '软件开发'
+      }
+    ];
 
       for (let i = 0; i < uploadedResumes.length; i++) {
         const file = uploadedResumes[i];
@@ -668,9 +670,9 @@ export const RecruitmentPage: React.FC = () => {
         let message = `🎉 成功解析 ${successCount} 份简历`;
         if (aiSuccessCount > 0) {
           message += ` (AI增强: ${aiSuccessCount}份`;
-          if (aiFailCount > 0) {
-            message += `, 基础解析: ${aiFailCount}份`;
-          }
+          if (failCount > 0) {
+          message += `, 基础解析: ${failCount}份`;
+        }
           message += ')';
         }
         if (failCount > 0) {
